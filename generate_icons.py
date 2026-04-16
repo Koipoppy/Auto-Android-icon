@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Android Launcher Icon Generator
 根据1024*1024的icon.png自动生成不同密度的启动器图标
 """
 
