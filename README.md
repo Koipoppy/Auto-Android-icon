@@ -1,4 +1,4 @@
-# Android Icon Generator
+# Auto Android icon
 
 根据指定的 1024×1024 `icon.png` 文件，自动生成 Android 项目所需的各种密度和类型的启动图标。
 
