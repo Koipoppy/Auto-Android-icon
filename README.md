@@ -1,4 +1,4 @@
-# Auto Android icon
+# Auto-Android-icon
 
 根据指定的 1024×1024 `icon.png` 文件，自动生成 Android 项目所需的各种密度和类型的启动图标。
 
@@ -31,25 +31,40 @@ pip install Pillow
 
 ### 基本用法
 
-```bash
-python generate_icons.py -i icon.png -o ./output
+1. 修改脚本中的输入和输出路径配置（位于脚本开头）：
+
+```python
+# ==================== 配置区域 ====================
+# 在此处修改输入和输出路径
+
+# 输入的源图片路径 (应为 1024x1024 的 PNG 文件)
+INPUT_PATH = 'icon.png'
+
+# 输出目录路径 (将在此目录下创建 res 文件夹)
+OUTPUT_PATH = './output'
+# =================================================
 ```
 
-### 参数说明
+2. 运行脚本：
 
-| 参数 | 简写 | 说明 | 默认值 |
-|------|------|------|--------|
-| `--input` | `-i` | 输入的 1024×1024 PNG 图标文件路径 | **必填** |
-| `--output` | `-o` | 输出目录路径 | `./res_output` |
+```bash
+python generate_icons.py
+```
+
+### 配置说明
+
+| 配置项 | 说明 | 示例 |
+|--------|------|------|
+| `INPUT_PATH` | 输入的 1024×1024 PNG 图标文件路径 | `'icon.png'`, `'/path/to/your/icon.png'` |
+| `OUTPUT_PATH` | 输出目录路径 | `'./output'`, `'./android_app/res'` |
 
 ### 示例
 
 ```bash
-# 使用当前目录下的 icon.png，输出到 ./my_app_res
-python generate_icons.py -i icon.png -o ./my_app_res
+# 使用默认配置（当前目录下的 icon.png，输出到 ./output）
+python generate_icons.py
 
-# 使用指定路径的图标文件
-python generate_icons.py -i /path/to/your/icon.png -o ./android_app/res
+# 或者先修改脚本中的 INPUT_PATH 和 OUTPUT_PATH，然后直接运行
 ```
 
 ## 输出结构

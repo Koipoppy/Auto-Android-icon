@@ -1,12 +1,23 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-根据1024*1024的icon.png自动生成不同密度的启动器图标
+Auto-Android-icon: 根据1024*1024的icon.png自动生成不同密度的启动器图标
 """
 
 import os
 import sys
 from PIL import Image
+
+# ==================== 配置区域 ====================
+# 在此处修改输入和输出路径
+
+# 输入的源图片路径 (应为1024x1024的PNG文件)
+INPUT_PATH = 'icon.png'
+
+# 输出目录路径 (将在此目录下创建res文件夹)
+OUTPUT_PATH = './output'
+# =================================================
+
 
 # Android各密度对应的尺寸（基于1024x1024的源图）
 # 标准比例：mdpi(1x), hdpi(1.5x), xhdpi(2x), xxhdpi(3x), xxxhdpi(4x)
@@ -86,40 +97,14 @@ def main():
     """
     主函数
     """
-    import argparse
-    
-    parser = argparse.ArgumentParser(
-        description='根据1024x1024的icon.png生成Android启动器图标',
-        formatter_class=argparse.RawDescriptionHelpFormatter,
-        epilog="""
-示例用法:
-  python generate_icons.py -i icon.png -o ./output
-  python generate_icons.py --input /path/to/icon.png --output /path/to/output
-        """
-    )
-    
-    parser.add_argument(
-        '-i', '--input',
-        required=True,
-        help='输入的icon.png文件路径 (应为1024x1024)'
-    )
-    
-    parser.add_argument(
-        '-o', '--output',
-        required=True,
-        help='输出目录路径 (将在此目录下创建res文件夹)'
-    )
-    
-    args = parser.parse_args()
-    
     print("=" * 60)
-    print("Android Launcher Icon Generator")
+    print("Auto-Android-icon")
     print("=" * 60)
-    print(f"源文件：{args.input}")
-    print(f"输出目录：{args.output}")
+    print(f"源文件：{INPUT_PATH}")
+    print(f"输出目录：{OUTPUT_PATH}")
     print("-" * 60)
     
-    success = generate_icons(args.input, args.output)
+    success = generate_icons(INPUT_PATH, OUTPUT_PATH)
     
     if success:
         print("\n✓ 图标生成成功!")
